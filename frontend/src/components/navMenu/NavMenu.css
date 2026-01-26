@@ -1,0 +1,33 @@
+#nav-menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 17px 0;
+  background-color: black;
+  border-right: 4px solid var(--primary-gray);
+  height: calc(100vh - (4.5rem));
+  width: 170px;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+
+#nav-menu-home-container,
+#nav-menu-messages-container,
+#nav-menu-sondages-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+#nav-menu-home-icon,
+#nav-menu-messages-icon,
+#nav-menu-sondages-icon {
+  color: white;
+  scale: 0.9;
+}
+
+#nav-menu-home-label,
+#nav-menu-messages-label,
+#nav-menu-sondages-label {
+  color: white;
+}

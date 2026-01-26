@@ -1,0 +1,41 @@
+#main-header-container {
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  border-bottom: 4px solid var(--primary-gray);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#main-header-nav-icon {
+  color: white;
+  cursor: pointer;
+}
+
+#main-header-title {
+  font-size: clamp(40px, 8vw, 50px);
+  color: white;
+}
+
+#main-header-profile-logout-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 10px;
+}
+
+#main-header-user-profile-image {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+}
+
+#main-header-logout-icon {
+  color: white;
+  cursor: pointer;
+}

@@ -1,0 +1,21 @@
+#home-page-main-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: calc(100vh - 4.5rem);
+  background-color: black;
+}
+
+#home-page-presentation-container {
+  height: calc(100vh - 4.5rem - 15rem);
+  max-width: 400px;
+  justify-self: center;
+  align-content: center;
+}
+
+#home-page-presentation-title {
+  color: white;
+}
+
+#home-page-presentation-text {
+  color: white;
+}

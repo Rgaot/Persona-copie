@@ -1,0 +1,75 @@
+#profile-page-back-link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+}
+
+#profile-page-main-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+#profile-page-profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px 0px;
+}
+
+#profile-page-profile-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#profile-page-profile-image-label {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+#profile-page-profile-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid #ffffff;
+  transition: border-color 0.3s;
+}
+
+#profile-page-profile-image:hover {
+  border-color: gray;
+}
+
+#avatar-upload {
+  display: none;
+  height: 70px;
+  width: 70px;
+}
+
+#profile-page-profile-information-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px 0;
+  border: 2px solid white;
+  padding: 10px;
+  transform: skewX(-11deg);
+}
+
+#profile-page-profile-username,
+#profile-page-profile-email,
+#profile-page-profile-created-at,
+#profile-page-profile-social-link {
+  color: white;
+}

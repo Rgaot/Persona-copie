@@ -1,0 +1,32 @@
+#footer-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 10px;
+
+  height: 4.5rem;
+  border-top: 4px solid var(--primary-gray);
+  background-color: black;
+}
+
+#footer-tiktok-link-container,
+#footer-discord-link-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#footer-tiktok-label,
+#footer-discord-label {
+  color: white;
+}
+
+.footer-links-arrows-icon {
+  color: white;
+  scale: 0.8;
+}

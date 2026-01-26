@@ -1,0 +1,27 @@
+#sondages-page-main-container {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+#sondages-page-main-content {
+  background-color: black;
+  height: calc(100vh - 4.5rem);
+  display: grid;
+  gap: 0 40px;
+  grid-template-columns: 60% 30%;
+  grid-template-rows: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+#sondages-page-sondage-info-container {
+  border: 2px solid gray;
+  width: 100%;
+  height: 85%;
+}
+
+#sondages-page-sondage-container {
+  border: 2px solid gray;
+  width: 100%;
+  height: 85%;
+}
