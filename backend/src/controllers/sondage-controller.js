@@ -70,13 +70,14 @@ export const getResults = async (req, res) => {
 };
 export const getOptions = async (req, res) => {
   try {
-    const option = {
-      1: "Persona 1",
-      2: "Persona 3",
-      3: "Persona 5 royale",
-    };
-    const SondageName = "Quel est votre liscence persona préféré ?";
-    res.status(200).json({ option, SondageName });
+    
+    res.status(200).json({
+      option: [
+        "Persona 1",
+        "Persona 2",
+        "Persona 5 royal"
+      ]
+    });
   } catch (error) {
     console.log("Error in getOptions controller", error.message);
   }

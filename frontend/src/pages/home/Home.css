@@ -7,13 +7,31 @@
 
 #home-page-presentation-container {
   height: calc(100vh - 4.5rem - 15rem);
-  max-width: 400px;
+  max-width: 500px;
   justify-self: center;
   align-content: center;
 }
 
 #home-page-presentation-title {
   color: white;
+  margin-bottom: 10px;
+  position: relative;
+  width: max-content;
+}
+
+#home-page-presentation-title::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left: 2px;
+  transition: width 1s ease;
+}
+
+#home-page-presentation-title:hover::after {
+  width: 40%;
 }
 
 #home-page-presentation-text {

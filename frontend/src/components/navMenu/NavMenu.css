@@ -17,6 +17,13 @@
   align-items: center;
   gap: 10px;
   text-decoration: none;
+  transition: scale 0.2s ease-in;
+}
+
+#nav-menu-home-container:hover,
+#nav-menu-messages-container:hover,
+#nav-menu-sondages-container:hover {
+  scale: 1.03;
 }
 
 #nav-menu-home-icon,

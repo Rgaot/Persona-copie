@@ -72,6 +72,12 @@
   border: 2px solid gray;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+#signup-page-form-submit-button:hover {
+  padding-left: 15px;
+  padding-left: 15px;
 }
 
 #signup-page-to-login-link {
@@ -80,6 +86,11 @@
   width: max-content;
   position: relative;
   padding-bottom: 4px;
+  transition: scale 0.2s ease-in;
+}
+
+#signup-page-to-login-link:hover {
+  scale: 1.05;
 }
 
 #signup-page-to-login-link::after {

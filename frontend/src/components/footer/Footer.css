@@ -15,18 +15,35 @@
 }
 
 #footer-tiktok-link-container,
-#footer-discord-link-container {
+#footer-discord-link-container,
+#footer-youtube-link-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center ;
+  text-decoration: none;
+  transition: scale 0.2s ease-in;
+}
+
+#footer-tiktok-link-container:hover,
+#footer-discord-link-container:hover,
+#footer-youtube-link-container:hover {
+  scale: 1.1;
 }
 
 #footer-tiktok-label,
-#footer-discord-label {
+#footer-discord-label,
+#footer-youtube-label {
   color: white;
+  text-decoration: none;
 }
 
 .footer-links-arrows-icon {
+  color: white;
+  scale: 0.8;
+  text-decoration: none;
+}
+
+#footer-copyright-icon {
   color: white;
   scale: 0.8;
 }

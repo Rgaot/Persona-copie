@@ -11,7 +11,12 @@
 
 #main-header-nav-icon {
   color: white;
-  cursor: pointer;
+  cursor: pointer;  
+  transition: scale 0.2s ease-in;
+}
+
+#main-header-nav-icon:hover {
+  scale: 1.1;
 }
 
 #main-header-title {
@@ -38,4 +43,9 @@
 #main-header-logout-icon {
   color: white;
   cursor: pointer;
+  transition: scale 0.2s ease-in;
+}
+
+#main-header-logout-icon:hover {
+  scale: 1.1;
 }
