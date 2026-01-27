@@ -1,4 +1,5 @@
 import "./SignupPage.css";
+import { ChevronLeft } from "lucide-react";
 
 import { Link } from "react-router";
 import { useState } from "react";
@@ -62,6 +63,9 @@ function SignupPage() {
   return (
     <>
       <header id="signup-page-header-container">
+        <Link to="/" id="signup-page-back-link">
+          <ChevronLeft />
+        </Link>
         <h1 id="signup-page-header-title">Inscription</h1>
       </header>
       <main id="signup-page-main-container">
