@@ -4,55 +4,59 @@ import { Link } from "react-router";
 import { useState } from "react";
 
 import { useAuthStore } from "../../store/authStore.js";
-import PasswordCriteria from "./PasswordCriteria"
+import PasswordCriteria from "./PasswordCriteria";
 
 function SignupPage() {
   const { signup, isSigningUp } = useAuthStore();
 
-  const [ userData, setUserData ] = useState({
+  const [userData, setUserData] = useState({
     username: "",
     email: "",
     password: "",
   });
 
   if (isSigningUp) {
-    return <div>Loading</div>;
+    return (
+      <div id="sigup-page-loading-container">
+        <h2 id="signup-page-loading-text">Chargement...</h2>
+      </div>
+    );
   }
 
   const validateForm = () => {
     if (!userData.username.trim()) {
-      return false
+      return false;
     }
     if (!userData.email.trim()) {
-      return false
+      return false;
     }
     if (!/\S+@\S+\.\S+/.test(userData.email)) {
-      return false
+      return false;
     }
     if (!userData.password.trim()) {
-      return false
+      return false;
     }
     if (userData.password.length < 6) {
-      return false
+      return false;
     }
 
-    const hasLowerCase = /[a-z]/.test(userData.password)
-    const hasUpperCase = /[A-Z]/.test(userData.password)
-    const hasSpecialCharacter = /[^A-Za-z0-9]/.test(userData.password)
-    const hasNumber = /\d/.test(userData.password)
+    const hasLowerCase = /[a-z]/.test(userData.password);
+    const hasUpperCase = /[A-Z]/.test(userData.password);
+    const hasSpecialCharacter = /[^A-Za-z0-9]/.test(userData.password);
+    const hasNumber = /\d/.test(userData.password);
 
     if (!hasLowerCase || !hasUpperCase || !hasSpecialCharacter || !hasNumber) {
-      return false
+      return false;
     }
 
-    return true
-  }
+    return true;
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const success = validateForm();
     if (success) {
-      signup(userData)
+      signup(userData);
     }
   };
   return (
@@ -106,13 +110,25 @@ function SignupPage() {
                   });
                 }}
               />
-              {userData.password.length > 0 && <PasswordCriteria password={userData.password}/>}
+              {userData.password.length > 0 && (
+                <PasswordCriteria password={userData.password} />
+              )}
             </div>
           </div>
 
           <div id="signup-page-submit-link-container">
-            <button id="signup-page-form-submit-button" type="submit" disabled={isSigningUp}>S'inscrire</button>
-            <Link to="/login" id="signup-page-to-login-link" disabled={isSigningUp}>
+            <button
+              id="signup-page-form-submit-button"
+              type="submit"
+              disabled={isSigningUp}
+            >
+              S'inscrire
+            </button>
+            <Link
+              to="/login"
+              id="signup-page-to-login-link"
+              disabled={isSigningUp}
+            >
               Se connecter ?
             </Link>
           </div>

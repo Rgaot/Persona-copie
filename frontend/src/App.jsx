@@ -1,3 +1,5 @@
+import "./App.css"
+
 import { Routes, Route, Navigate } from "react-router";
 import { useEffect } from "react";
 
@@ -18,17 +20,36 @@ function App() {
   }, []);
 
   if (isCheckingAuth) {
-    return <div>Loading...</div>;
+    return (
+      <div id="app-loading-container">
+        <h2 id="app-loading-text">Chargement...</h2>
+      </div>
+    );
   }
 
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/sondages" element={authUser ? <SondagesPage /> : <Navigate to="/sign-up"/>} />
-      <Route path="/messages" element={authUser ? <MessagesPage /> : <Navigate to="/sign-up"/>} />
-      <Route path="/sign-up" element={authUser ? <Navigate to="/" /> : <SignupPage />} />
-      <Route path="/login" element={authUser ? <Navigate to="/" /> : <LoginPage />} />
-      <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/sign-up"/>}/>
+      <Route
+        path="/sondages"
+        element={authUser ? <SondagesPage /> : <Navigate to="/sign-up" />}
+      />
+      <Route
+        path="/messages"
+        element={authUser ? <MessagesPage /> : <Navigate to="/sign-up" />}
+      />
+      <Route
+        path="/sign-up"
+        element={authUser ? <Navigate to="/" /> : <SignupPage />}
+      />
+      <Route
+        path="/login"
+        element={authUser ? <Navigate to="/" /> : <LoginPage />}
+      />
+      <Route
+        path="/profile"
+        element={authUser ? <ProfilePage /> : <Navigate to="/sign-up" />}
+      />
     </Routes>
   );
 }

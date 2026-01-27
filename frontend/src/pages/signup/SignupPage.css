@@ -1,3 +1,15 @@
+#login-page-loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: black;
+}
+
+#login-page-loading-text {
+  color: gray;
+}
+
 #signup-page-header-container {
   display: flex;
   align-items: center;
