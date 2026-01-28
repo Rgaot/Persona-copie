@@ -88,8 +88,7 @@
 
 #messages-page-selected-user-info-container {
   position: absolute;
-  top: 120%;
-  left: -150%;
+  left: -200%;
   width: 250px;
   background-color: black;
   z-index: 1;

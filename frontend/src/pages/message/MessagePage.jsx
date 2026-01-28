@@ -102,10 +102,10 @@ function MessagesPage() {
                             </div>
                             <div>
                               <p id="messages-page-selected-user-social-link">
-                                Messages envoyées : {message?.sender?.messagesSent}
+                                Messages envoyés : {message?.sender?.messagesSent}
                               </p>
                               <p id="messages-page-selected-user-createdAt">
-                                Conmpte créer le : { message.sender.createdAt.split("T")[0]}
+                                Compte crée le : { message.sender.createdAt.split("T")[0]}
                               </p>
                             </div>
                           </div>
