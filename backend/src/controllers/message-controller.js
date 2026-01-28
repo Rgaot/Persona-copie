@@ -9,7 +9,7 @@ export const sendMessage = async (req, res) => {
 
     if (!text) return res.status(400).json({ message: "A text is required" });
 
-    await User.findByIdAndUpdate(userId, { $inc: { messagesSent: 1 }, $gt: {} });
+    const updatedUser = await User.findByIdAndUpdate(userId, { $inc: { messagesSent: 1 }, $gt: {} });
     await updatedUser.save();
 
     const newMessage = await new Message({
