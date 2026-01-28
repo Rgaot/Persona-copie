@@ -41,7 +41,7 @@ function LoginPage() {
               <input
                 className="login-page-form-input"
                 type="email"
-                placeholder="email"
+                placeholder="Email"
                 onChange={(e) => {
                   setUserData({
                     ...userData,

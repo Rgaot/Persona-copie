@@ -56,7 +56,7 @@ function ProfilePage() {
               Nom d'utilisateur : {authUser.username}
             </p>
             <p id="profile-page-profile-email">Email : {authUser.email}</p>
-            <p id="profile-page-profile-social-link">Liens sociaux :</p>
+            <p id="profile-page-profile-social-link">Liens sociaux : level {authUser.socialLinks}</p>
           </div>
           <div>
             <p id="profile-page-profile-created-at">

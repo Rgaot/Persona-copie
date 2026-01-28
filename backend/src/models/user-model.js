@@ -27,6 +27,14 @@ const userSchema = mongoose.Schema(
       default: "",
       
     },
+    messagesSent: {
+      type: Number,
+      default: 0
+    },
+    socialLinks: {
+      type: Number,
+      default: 0,
+    }
   },
   {
     timestamps: true,

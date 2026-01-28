@@ -7,6 +7,7 @@ import { useNavMenuStore } from "../../store/navMenuStore.js";
 import { useAuthStore } from "../../store/authStore.js";
 import { useChatStore } from "../../store/chatStore.js";
 import { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router";
 
 function MessagesPage() {
   const { isNavMenuOpen } = useNavMenuStore();
@@ -16,14 +17,16 @@ function MessagesPage() {
     sendMessage,
     listenToMessages,
     stopListenToMessages,
+    selectedUser,
+    showInfos,
+    stopShowingInfos,
   } = useChatStore();
   const { authUser } = useAuthStore();
-  const lastMessageRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getMessages();
     listenToMessages();
-    console.log(authUser);
     return () => stopListenToMessages();
   }, [getMessages, listenToMessages, stopListenToMessages]);
 
@@ -34,6 +37,7 @@ function MessagesPage() {
   }, [messages]);
 
   const [text, setText] = useState("");
+  const lastMessageRef = useRef(null);
 
   const handleSendMessage = async () => {
     if (!text.trim()) {
@@ -55,6 +59,7 @@ function MessagesPage() {
             ? { gridTemplateColumns: "170px 1fr" }
             : { gridTemplateColumns: "1fr" }
         }
+        onClick={() => stopShowingInfos}
       >
         {isNavMenuOpen && <NavMenu />}
         <div id="messages-page-main-content">
@@ -72,10 +77,42 @@ function MessagesPage() {
                         {message?.text}
                       </p>
                     </div>
-                    <div className="messages-page-message-user-container" style={authUser?._id === message?.senderId ? {borderColor: "white"} : {}}>
+                    <div
+                      className="messages-page-message-user-container"
+                      style={
+                        authUser?._id === message?.senderId
+                          ? { borderColor: "white" }
+                          : {}
+                      }
+                      onClick={() => showInfos(message.senderId, message._id)}
+                    >
+                      {selectedUser.senderId === message.senderId &&
+                        selectedUser.messageId === message._id && (
+                          <div id="messages-page-selected-user-info-container">
+                            <div id="messages-page-selected-user-info-username-profile-image-container">
+                              <img
+                                src={
+                                  message?.sender?.profileImage || "avatar.png"
+                                }
+                                id="messages-page-selected-user-info-profile-image"
+                              />
+                              <p id="messages-page-selected-user-info-username">
+                                {message?.sender?.username}
+                              </p>
+                            </div>
+                            <div>
+                              <p id="messages-page-selected-user-social-link">
+                                Messages envoyées : {message?.sender?.messagesSent}
+                              </p>
+                              <p id="messages-page-selected-user-createdAt">
+                                Conmpte créer le : { message.sender.createdAt.split("T")[0]}
+                              </p>
+                            </div>
+                          </div>
+                        )}
                       <p className="messages-page-message-username">
                         {message?.sender?.username}
-                      </p>
+                      </p>    
                       <img
                         src={message?.sender?.profileImage || "avatar.png"}
                         alt="Profile image"

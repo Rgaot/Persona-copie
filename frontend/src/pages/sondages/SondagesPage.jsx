@@ -39,8 +39,6 @@ function SondagesPage() {
     return <div>Chargement...</div>;
   }
 
-  console.log(sondagesResults);
-
   const handleVote = async () => {
     if (choice === 0) return vote(choice);
     if (!choice) return;

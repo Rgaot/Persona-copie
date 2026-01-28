@@ -7,6 +7,7 @@ export const useChatStore = create((set, get) => ({
   messages: [],
   isSendingMessage: false,
   isLoadingMessages: false,
+  selectedUser: "",
 
   getMessages: async () => {
     set({ isLoadingMessages: true });
@@ -34,13 +35,28 @@ export const useChatStore = create((set, get) => ({
   listenToMessages: async () => {
     const socket = useAuthStore.getState().socket;
     socket.on("New message", (message) => {
-      set({messages: [...get().messages, message]})
+      set({ messages: [...get().messages, message] });
     });
-    await get().getMessages()
+    await get().getMessages();
   },
 
   stopListenToMessages: () => {
     const socket = useAuthStore.getState().socket;
-    socket.off("New message")
+    socket.off("New message");
+  },
+
+  showInfos: (senderId, messageId) => {
+    const authUser = useAuthStore.getState().authUser;
+    if (get().selectedUser && get().selectedUser.senderId === senderId && get().selectedUser.messageId === messageId ) {
+      set({ selectedUser: "" });
+    } else {
+      set({ selectedUser: { senderId: senderId, messageId: messageId } });
+    }
+  },
+
+  stopShowingInfos: () => {
+    if (get().selectedUser.senderId) {
+      set({ selectedUser: "" })
+    }
   }
 }));

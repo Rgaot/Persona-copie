@@ -68,6 +68,8 @@
   padding: 7px;
   border: 3px solid gray;
   border-radius: 5px;
+  position: relative;
+  cursor: pointer;
 }
 
 .messages-page-message-username {
@@ -83,6 +85,48 @@
   object-position: center;
 
 }
+
+#messages-page-selected-user-info-container {
+  position: absolute;
+  top: 120%;
+  left: -150%;
+  width: 250px;
+  background-color: black;
+  z-index: 1;
+  border: 3px solid white;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: skewX(-6deg);
+}
+
+#messages-page-selected-user-info-username-profile-image-container {
+  display: flex;
+  align-items: center;
+  gap: 0px 5px ;
+}
+
+#messages-page-selected-user-info-profile-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid white;
+  object-fit: cover;
+  object-position: center;
+
+}
+#messages-page-selected-user-info-username {
+  color: white;
+}
+
+#messages-page-selected-user-social-link,
+#messages-page-selected-user-createdAt {
+  color: white;
+}
+
 
 /* Input & button part */
 

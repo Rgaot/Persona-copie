@@ -71,6 +71,7 @@ export const login = async (req, res) => {
         email: user.email,
         profileImage: user.profileImage,
         createdAt: user.createdAt,
+        socialLinks: user.socialLinks
       });
     }
   } catch (error) {
@@ -99,6 +100,7 @@ export const checkAuth = async (req, res) => {
         email: user.email,
         profileImage: user.profileImage,
         createdAt: user.createdAt,
+        socialLinks: user.socialLinks
       });
   } catch (error) {
     console.log("Error in checkAuth controller", error.message);
@@ -129,6 +131,7 @@ export const updateProfileImage = async (req, res) => {
       profileImage: updatedUser.profileImage,
       email: updatedUser.email,
       createdAt: updatedUser.createdAt,
+      socialLink: updatedUser.socialLinks
     });
   } catch (error) {
     console.log("Error in updateProfileImage controller ", error);

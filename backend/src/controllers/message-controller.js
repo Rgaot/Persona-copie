@@ -1,4 +1,5 @@
 import Message from "../models/message-model.js";
+import User from "../models/user-model.js"
 import { io } from "../utils/socket.js";
 
 export const sendMessage = async (req, res) => {
@@ -7,6 +8,9 @@ export const sendMessage = async (req, res) => {
     const userId = req.user._id;
 
     if (!text) return res.status(400).json({ message: "A text is required" });
+
+    await User.findByIdAndUpdate(userId, { $inc: { messagesSent: 1 }, $gt: {} });
+    await updatedUser.save();
 
     const newMessage = await new Message({
       senderId: userId,
@@ -33,6 +37,8 @@ export const sendMessage = async (req, res) => {
           sender: {
             username: 1,
             profileImage: 1,
+            messagesSent: 1,
+            createdAt: 1,
           },
           createdAt: 1,
         },
@@ -66,6 +72,8 @@ export const getMessage = async (req, res) => {
           sender: {
             username: 1,
             profileImage: 1,
+            messagesSent: 1,
+            createdAt: 1,
           },
           createdAt: 1,
         },
