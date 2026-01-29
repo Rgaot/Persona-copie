@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import helmet from "helmet"
+import helmet from "helmet";
 import path from "path";
 
 import connectDb from "./utils/db.js";
@@ -34,15 +34,14 @@ app.use(
     credentials: true,
   }),
 );
-
-
+app.use(helmet({ imgSrc: ["'self'", "https://res.cloudinary.com/"] }));
 
 // routes
 app.use("/api/auth", authRoutes);
 app.use("/api/message", messageRoutes);
 app.use("/api/sondage", sondageRoutes);
 
-if(process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
   app.get("/*path", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
