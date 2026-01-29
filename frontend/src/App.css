@@ -7,5 +7,5 @@
 }
 
 #app-loading-text {
-  color: gray;
+  color: var(--primary-gray);
 }

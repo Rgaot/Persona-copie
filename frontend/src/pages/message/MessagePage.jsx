@@ -19,10 +19,8 @@ function MessagesPage() {
     stopListenToMessages,
     selectedUser,
     showInfos,
-    stopShowingInfos,
   } = useChatStore();
   const { authUser } = useAuthStore();
-  const navigate = useNavigate();
 
   useEffect(() => {
     getMessages();
@@ -59,7 +57,6 @@ function MessagesPage() {
             ? { gridTemplateColumns: "170px 1fr" }
             : { gridTemplateColumns: "1fr" }
         }
-        onClick={() => stopShowingInfos}
       >
         {isNavMenuOpen && <NavMenu />}
         <div id="messages-page-main-content">
@@ -138,7 +135,7 @@ function MessagesPage() {
                 id="messages-page-send-button"
                 onClick={handleSendMessage}
               >
-                Send
+                Envoyer
               </button>
             </div>
           </div>

@@ -29,7 +29,7 @@ function ProfilePage() {
       <main id="profile-page-main-container">
         <Link to="/" id="profile-page-back-link">
           <ChevronLeft />
-          Acceuil
+          Accueil
         </Link>
         <div id="profile-page-profile-container">
           <div id="profile-page-profile-image-container">

@@ -26,8 +26,8 @@ function Home() {
             discuter à propos du jeu ainsi que donner vos opinions sur le jeu.
             <br />
             Le but de ce site est de créer une petite commu persona fr. <br />
-            N'hésitez pas aussi a me soutenir dans les réseaux sociaux, vous
-            avez les liens en bas de la page
+            N'hésitez pas aussi à me soutenir dans les réseaux sociaux, vous
+            avez les liens en bas de la page .
           </p>
         </div>
       </main>

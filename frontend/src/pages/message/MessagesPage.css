@@ -18,7 +18,7 @@
 #messages-page-component {
   height: 90%;
   width: 90%;
-  border: 3px solid gray;
+  border: 3px solid var(--primary-gray);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   display: flex;
@@ -57,16 +57,19 @@
 .messages-page-message-text {
   overflow-wrap: anywhere;
   color: white;
+  user-select: text;
+  font-family: Arsenal, Arial;
+  font-weight: 400;
 }
 
 .messages-page-message-user-container {
-  display: flex;
+  display: flex;  
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 10px;
   padding: 7px;
-  border: 3px solid gray;
+  border: 3px solid var(--primary-gray);
   border-radius: 5px;
   position: relative;
   cursor: pointer;
@@ -106,6 +109,7 @@
   display: flex;
   align-items: center;
   gap: 0px 5px ;
+  transform: skew(6deg);
 }
 
 #messages-page-selected-user-info-profile-image {
@@ -115,8 +119,8 @@
   border: 2px solid white;
   object-fit: cover;
   object-position: center;
-
 }
+
 #messages-page-selected-user-info-username {
   color: white;
 }
@@ -133,7 +137,7 @@
   display: flex;
   align-items: stretch;
   height: 7%;
-  border-top: 3px solid gray;
+  border-top: 3px solid var(--primary-gray);
 }
 
 #messages-page-send-input {
@@ -151,8 +155,8 @@
 
 #messages-page-send-button {
   padding: 0 15px;
-  border: 1px solid gray;
+  border: 2px solid var(--primary-gray);
   background-color: black;
   color: white;
-  cursor: pointer;
+  cursor: pointer;  
 }

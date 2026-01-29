@@ -4,12 +4,15 @@ import axiosInstance from "../utils/axios.js";
 
 import { io } from "socket.io-client";
 
-const BASE_URL = import.meta.env.MODE === "development" ? "http://localhost:5001" : "/";
+const BASE_URL =
+  import.meta.env.MODE === "development" ? "http://localhost:5000" : "/";
 export const useAuthStore = create((set, get) => ({
   authUser: null,
   isCheckingAuth: false,
   isLoggingIn: false,
+  loginError: null,
   isSigningUp: false,
+  signupError: null,
   isUpdatingProfileImage: false,
   socket: null,
 
@@ -20,7 +23,7 @@ export const useAuthStore = create((set, get) => ({
       set({ authUser: response.data });
       get().connectSocket();
     } catch (error) {
-      console.log("Error with checking authetification", error);
+      console.log("User not authentificated");
     } finally {
       set({ isCheckingAuth: false });
     }
@@ -34,6 +37,10 @@ export const useAuthStore = create((set, get) => ({
       get().connectSocket();
     } catch (error) {
       console.log("Error with signing up", error);
+      set({ signupError: error.response.data.message });
+      setTimeout(() => {
+        set({ signupError: null})
+      }, 2000)
     } finally {
       set({ isSigningUp: false });
     }
@@ -47,6 +54,10 @@ export const useAuthStore = create((set, get) => ({
       get().connectSocket();
     } catch (error) {
       console.log("Error with Signing up", error.message);
+      set({ loginError: error.response.data.message });
+      setTimeout(() => {
+        set({ loginError: null})
+      }, 2000)
     } finally {
       set({ isLoggingIn: false });
     }

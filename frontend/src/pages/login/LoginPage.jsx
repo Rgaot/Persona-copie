@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useAuthStore } from "../../store/authStore.js";
 
 function LoginPage() {
-  const { isLoggingIn, login } = useAuthStore();
+  const { isLoggingIn, login, loginError } = useAuthStore();
 
   const [userData, setUserData] = useState({
     email: "",
@@ -82,6 +82,9 @@ function LoginPage() {
             </Link>
           </div>
         </form>
+        { loginError && <div id="login-page-error-message-container">
+          <p id="login-page-error-message"> {loginError}</p>
+        </div>}
       </main>
     </>
   );

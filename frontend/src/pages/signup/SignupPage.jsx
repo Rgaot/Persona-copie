@@ -8,7 +8,7 @@ import { useAuthStore } from "../../store/authStore.js";
 import PasswordCriteria from "./PasswordCriteria";
 
 function SignupPage() {
-  const { signup, isSigningUp } = useAuthStore();
+  const { signup, isSigningUp, signupError } = useAuthStore();
 
   const [userData, setUserData] = useState({
     username: "",
@@ -59,6 +59,11 @@ function SignupPage() {
     if (success) {
       signup(userData);
     }
+    setUserData({
+      username: "",
+      email: "",
+      password: "",
+    });
   };
   return (
     <>
@@ -137,6 +142,11 @@ function SignupPage() {
             </Link>
           </div>
         </form>
+        {signupError && (
+          <div id="signup-page-error-message-container">
+            <p id="signup-page-error-message">{signupError}</p>
+          </div>
+        )}
       </main>
     </>
   );

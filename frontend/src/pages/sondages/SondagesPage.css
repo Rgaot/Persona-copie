@@ -15,13 +15,13 @@
 }
 
 #sondages-page-sondage-info-container {
-  border: 3px solid gray;
+  border: 3px solid var(--primary-gray);
   width: 100%;
   height: 85%;
 }
 
 #sondages-page-sondage-container {
-  border: 3px solid gray;
+  border: 3px solid var(--primary-gray);
   width: 100%;
   height: 85%;
   display: flex;
@@ -33,7 +33,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 3px solid gray;
+  border-bottom: 3px solid var(--primary-gray);
 }
 
 #sondages-page-sondage-question {
@@ -55,7 +55,7 @@
 
 .sondages-page-sondage-option-container {
   border: 4px solid white;
-  background-color: rgb(147, 26, 28);
+  background-color: var(--primary-red);
   padding: 20px 10px;
   transform: skewX(-11deg);
   display: flex;
@@ -74,7 +74,7 @@
 }
 
 .sondages-page-sondage-option-percent {
-  color: gray;
+  color: var(--primary-gray);
   font-weight: bold;
 }
 
@@ -88,7 +88,7 @@
   height: 100%;
   background-color: black;
   border: none;
-  border-top: 3px solid gray;
+  border-top: 3px solid var(--primary-gray);
   color: white;
   font-size: 17px;
   font-weight: 600;

@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import helmet from "helmet"
 import path from "path";
 
 import connectDb from "./utils/db.js";
@@ -33,6 +34,7 @@ app.use(
     credentials: true,
   }),
 );
+app.use(helmet());
 
 
 // routes

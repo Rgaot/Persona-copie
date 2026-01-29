@@ -21,11 +21,11 @@ function PasswordCriteria({password}) {
           {criteria.met ? (
             <Check style={{ color: "green" }} />
           ) : (
-            <X style={{ color: "gray" }} />
+            <X style={{ color: "var(--primary-gray)" }} />
           )}
           <span
             className="signup-page-critera-labels"
-            style={criteria.met ? { color: "green" } : { color: "gray" }}
+            style={criteria.met ? { color: "green" } : { color: "var(--primary-gray)" }}
           >
             {criteria.label}
           </span>

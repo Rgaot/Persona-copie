@@ -47,16 +47,14 @@ export const useChatStore = create((set, get) => ({
 
   showInfos: (senderId, messageId) => {
     const authUser = useAuthStore.getState().authUser;
-    if (get().selectedUser && get().selectedUser.senderId === senderId && get().selectedUser.messageId === messageId ) {
+    if (
+      get().selectedUser &&
+      get().selectedUser.senderId === senderId &&
+      get().selectedUser.messageId === messageId
+    ) {
       set({ selectedUser: "" });
     } else {
       set({ selectedUser: { senderId: senderId, messageId: messageId } });
     }
   },
-
-  stopShowingInfos: () => {
-    if (get().selectedUser.senderId) {
-      set({ selectedUser: "" })
-    }
-  }
 }));

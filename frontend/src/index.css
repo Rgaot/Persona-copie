@@ -1,5 +1,6 @@
 :root {
-  --primary-gray: rgb(90, 90, 90); 
+  --primary-gray: rgb(90, 90, 90);
+  --primary-red: rgb(147, 26, 28)
 }
 
 body {

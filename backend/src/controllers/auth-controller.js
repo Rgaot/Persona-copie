@@ -10,16 +10,17 @@ export const signup = async (req, res) => {
 
     // check if credentials are correct
     if (!username || !email || !password)
-      return res.status(400).json({ message: "All fields are required" });
+      return res.status(400).json({ message: "Tous les champs sont requis" });
     if (password.length < 6)
       return res
         .status(400)
-        .json({ message: "Password must be at least 6 characters" });
+        .json({ message: "Le mot de passe doit répondre aux critères" });
 
     // check if user already exists
-    const user = await User.findOne({ email }).select("-password");
-    if (user) return res.status(400).json({ message: "User already exists" });
-
+    const user = await User.findOne({ email }).select("-password") || await User.findOne({ username }).select("-password");
+    if (user)
+      return res.status(400).json({ message: "Le nom du'utilisateur ou l'email est déjà utilisé" });
+    
     // hash the password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -56,12 +57,13 @@ export const login = async (req, res) => {
 
     // check if user exist
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ message: "User not founs" });
+    if (!user)
+      return res.status(400).json({ message: "Utilisateur non trouvée" });
 
     // check if credentials are correct
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
     if (!isPasswordCorrect)
-      return res.status(400).json({ message: "Invalid credentaials" });
+      return res.status(400).json({ message: "Connexion invalide" });
 
     if (isPasswordCorrect) {
       generateToken(user._id, res);
@@ -71,7 +73,7 @@ export const login = async (req, res) => {
         email: user.email,
         profileImage: user.profileImage,
         createdAt: user.createdAt,
-        socialLinks: user.socialLinks
+        socialLinks: user.socialLinks,
       });
     }
   } catch (error) {
@@ -95,13 +97,13 @@ export const checkAuth = async (req, res) => {
     const user = req.user;
     if (!user) return res.status(400).json({ message: "No user logged in." });
     res.status(200).json({
-        _id: user._id,
-        username: user.username,
-        email: user.email,
-        profileImage: user.profileImage,
-        createdAt: user.createdAt,
-        socialLinks: user.socialLinks
-      });
+      _id: user._id,
+      username: user.username,
+      email: user.email,
+      profileImage: user.profileImage,
+      createdAt: user.createdAt,
+      socialLinks: user.socialLinks,
+    });
   } catch (error) {
     console.log("Error in checkAuth controller", error.message);
     res.status(500).json({ message: "Internal server error" });
@@ -131,7 +133,7 @@ export const updateProfileImage = async (req, res) => {
       profileImage: updatedUser.profileImage,
       email: updatedUser.email,
       createdAt: updatedUser.createdAt,
-      socialLink: updatedUser.socialLinks
+      socialLink: updatedUser.socialLinks,
     });
   } catch (error) {
     console.log("Error in updateProfileImage controller ", error);

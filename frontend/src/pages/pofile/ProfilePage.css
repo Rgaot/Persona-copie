@@ -48,7 +48,7 @@
 }
 
 #profile-page-profile-image:hover {
-  border-color: gray;
+  border-color: var(--primary-gray);
 }
 
 #avatar-upload {
