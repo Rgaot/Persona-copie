@@ -34,7 +34,14 @@ app.use(
     credentials: true,
   }),
 );
-app.use(helmet({ imgSrc: ["'self'", "https://res.cloudinary.com/"] }));
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "img-src": ["'self'", "https:", "data:", "https://res.cloudinary.com"],
+    },
+  })
+);
 
 // routes
 app.use("/api/auth", authRoutes);
