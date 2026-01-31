@@ -32,11 +32,11 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route
         path="/sondages"
-        element={authUser ? <SondagesPage /> : <Navigate to="/sign-up" />}
+        element={authUser ? <SondagesPage /> : <Navigate to="/login" />}
       />
       <Route
         path="/messages"
-        element={authUser ? <MessagesPage /> : <Navigate to="/sign-up" />}
+        element={authUser ? <MessagesPage /> : <Navigate to="/login" />}
       />
       <Route
         path="/sign-up"
@@ -48,7 +48,7 @@ function App() {
       />
       <Route
         path="/profile"
-        element={authUser ? <ProfilePage /> : <Navigate to="/sign-up" />}
+        element={authUser ? <ProfilePage /> : <Navigate to="/login" />}
       />
     </Routes>
   );

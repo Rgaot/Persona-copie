@@ -75,7 +75,7 @@ export const getOptions = async (req, res) => {
       option: [
         "Persona 1",
         "Persona 2",
-        "Persona 3 Reaload",
+        "Persona 3 Reload",
         "Persona 4 Golden",
         "Persona 5 Royal"
       ]
